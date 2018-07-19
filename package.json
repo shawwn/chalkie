@@ -4,6 +4,21 @@
   "main": "chalkie.js",
   "author": "Shawn Presser <shawnpresser@gmail.com>",
   "license": "MIT",
+  "homepage": "https://github.com/shawwn/chalkie#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shawwn/chalkie.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shawwn/chalkie#issues"
+  },
+  "keywords": [
+    "chalk",
+    "chalkjs",
+    "xterm",
+    "xtermjs",
+    "ansi"
+  ],
   "scripts": {
     "build": "browserify index.js -o chalkie.js",
     "prepublish": "npm run build",

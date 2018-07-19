@@ -28,7 +28,7 @@ document.body.innerHTML = AnsiHTML(Chalk.red("foo"));
 
 ## Example
 
-See the source code of the [live demo](https://rawgit.com/shawwn/chalk.js/master/index.html):
+See the [source code](https://github.com/shawwn/chalk.js/blob/master/index.html) of the [live demo](https://rawgit.com/shawwn/chalk.js/master/index.html):
 ```html
 <html>
   <body>
@@ -51,7 +51,7 @@ See the source code of the [live demo](https://rawgit.com/shawwn/chalk.js/master
     <script>
       var term = new Terminal();
       term.open(document.getElementById('terminal'));
-term.write(`${Chalk.red("Hello")} from ${Chalk.bold.underline.bgCyanBright.black('xterm.js')} !`);
+      term.write(`${Chalk.red("Hello")} from ${Chalk.bold.underline.bgCyanBright.black('xterm.js')} !`);
     </script>
   </body>
 </html>

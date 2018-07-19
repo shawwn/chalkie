@@ -1,11 +1,11 @@
 {
-  "name": "chalk.js",
+  "name": "chalkie",
   "version": "0.0.5",
-  "main": "chalk.js",
+  "main": "chalkie.js",
   "author": "Shawn Presser <shawnpresser@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "browserify index.js -o chalk.js",
+    "build": "browserify index.js -o chalkie.js",
     "prepublish": "npm run build",
     "start": "live-server"
   },

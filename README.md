@@ -4,11 +4,13 @@
 
 ## Demo
 
-To see a demo, run `yarn && yarn start`.
+[Live demo](https://rawgit.com/shawwn/chalk.js/master/index.html)
 
 ![image](https://user-images.githubusercontent.com/59632/42915514-0127d3b4-8ac6-11e8-828b-c350ed885a7b.png)
 
-## Install
+To see the demo locally, run `yarn && yarn start`.
+
+## Using chalk.js
 
 ```
 <script src="https://unpkg.com/chalk.js@latest/chalk.js"></script>
@@ -26,7 +28,7 @@ document.body.innerHTML = AnsiHTML(Chalk.red("foo"));
 
 ## Example
 
-See index.html:
+See the source code of the [live demo](https://rawgit.com/shawwn/chalk.js/master/index.html):
 ```html
 <html>
   <body>
@@ -54,3 +56,4 @@ term.write(`${Chalk.red("Hello")} from ${Chalk.bold.underline.bgCyanBright.black
   </body>
 </html>
 ```
+

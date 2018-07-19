@@ -12,8 +12,9 @@ To see the demo locally, run `yarn && yarn start`.
 
 ## Using chalkie
 
+Include chalkie in your website:
 ```
-<script src="https://unpkg.com/chalkie@latest/chalkie"></script>
+<script src="https://unpkg.com/chalkie@latest"></script>
 ```
 
 Then use `Chalk` from anywhere in your code:

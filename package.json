@@ -1,7 +1,21 @@
 {
-  "name": "chalk-web",
+  "name": "chalk.js",
   "version": "0.0.0",
   "main": "index.js",
   "author": "Shawn Presser <shawnpresser@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "browserify index.js -o chalk.js",
+    "prepublish": "npm run build",
+    "start": "live-server"
+  },
+  "dependencies": {
+    "ansi-html": "^0.0.7",
+    "chalk": "^2.4.1",
+    "xterm": "^3.5.1"
+  },
+  "devDependencies": {
+    "browserify": "^16.2.2",
+    "live-server": "^1.2.0"
+  }
 }

@@ -26,8 +26,8 @@
     "start": "live-server"
   },
   "dependencies": {
-    "ansi-html": "^0.0.7",
     "chalk": "^2.4.1",
+    "shawwn-ansi-html": "^0.0.8",
     "strip-ansi": "^4.0.0",
     "xterm": "^3.5.1"
   },

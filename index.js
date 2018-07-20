@@ -1,4 +1,4 @@
-ansiHTML = require('ansi-html');
+ansiHTML = require('shawwn-ansi-html');
 stripAnsi = require('strip-ansi');
 chalk = require('chalk');
 chalk.enabled = true;

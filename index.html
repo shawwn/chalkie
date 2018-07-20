@@ -2,15 +2,15 @@
   <body>
     <script src="https://unpkg.com/chalkie@latest"></script>
 
-    <!-- How to manually create HTML elements from Chalk strings -->
+    <!-- How to manually create HTML elements from chalk strings -->
     <div id="code">
     </div>
     <script>
-      var html = AnsiHTML(Chalk.magenta.bold.italic.underline("Hello from HTML!"));
+      var html = ansiHTML(chalk.magenta.bold.italic.underline("Hello from HTML!"));
       document.getElementById("code").innerHTML = html;
     </script>
 
-    <!-- How to use Chalk with xterm.js -->
+    <!-- How to use chalk with xterm.js -->
     <script src="https://unpkg.com/xterm@latest/dist/xterm.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/xterm@latest/dist/xterm.css" />
 
@@ -19,7 +19,7 @@
     <script>
       var term = new Terminal();
       term.open(document.getElementById('terminal'));
-      term.write(`${Chalk.red("Hello")} from ${Chalk.bold.underline.bgCyanBright.black('xterm.js')} !`);
+      term.write(`${chalk.red("Hello")} from ${chalk.bold.underline.bgCyanBright.black('xterm.js')} !`);
     </script>
   </body>
 </html>

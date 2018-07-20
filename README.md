@@ -17,14 +17,14 @@ Include chalkie in your website:
 <script src="https://unpkg.com/chalkie@latest"></script>
 ```
 
-Then use `Chalk` from anywhere in your code:
+Then use `chalk` from anywhere in your code:
 ```
-console.log(Chalk.red("foo"))
+console.log(chalk.red("foo"))
 ```
 
 To convert to HTML, you can call `AnsiHTML` and pass in a chalk string:
 ```
-document.body.innerHTML = AnsiHTML(Chalk.red("foo"));
+document.body.innerHTML = ansiHTML(chalk.red("foo"));
 ```
 
 ## Example
@@ -33,17 +33,17 @@ See the [source code](https://github.com/shawwn/chalkie/blob/master/index.html) 
 ```html
 <html>
   <body>
-    <script src="https://unpkg.com/chalkie@latest/chalkie.js"></script>
+    <script src="https://unpkg.com/chalkie@latest"></script>
 
-    <!-- How to manually create HTML elements from Chalk strings -->
+    <!-- How to manually create HTML elements from chalk strings -->
     <div id="code">
     </div>
     <script>
-      var html = AnsiHTML(Chalk.magenta.bold.italic.underline("Hello from HTML!"));
+      var html = ansiHTML(chalk.magenta.bold.italic.underline("Hello from HTML!"));
       document.getElementById("code").innerHTML = html;
     </script>
 
-    <!-- How to use Chalk with xterm.js -->
+    <!-- How to use chalk with xterm.js -->
     <script src="https://unpkg.com/xterm@latest/dist/xterm.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/xterm@latest/dist/xterm.css" />
 
@@ -52,7 +52,7 @@ See the [source code](https://github.com/shawwn/chalkie/blob/master/index.html) 
     <script>
       var term = new Terminal();
       term.open(document.getElementById('terminal'));
-      term.write(`${Chalk.red("Hello")} from ${Chalk.bold.underline.bgCyanBright.black('xterm.js')} !`);
+      term.write(`${chalk.red("Hello")} from ${chalk.bold.underline.bgCyanBright.black('xterm.js')} !`);
     </script>
   </body>
 </html>

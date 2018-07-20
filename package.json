@@ -14,10 +14,11 @@
   },
   "keywords": [
     "chalk",
-    "chalkjs",
+    "chalkie",
     "xterm",
     "xtermjs",
-    "ansi"
+    "ansi",
+    "ansihtml"
   ],
   "scripts": {
     "build": "browserify index.js -o chalkie.js",

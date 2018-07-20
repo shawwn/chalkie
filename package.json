@@ -28,6 +28,7 @@
   "dependencies": {
     "ansi-html": "^0.0.7",
     "chalk": "^2.4.1",
+    "strip-ansi": "^4.0.0",
     "xterm": "^3.5.1"
   },
   "devDependencies": {

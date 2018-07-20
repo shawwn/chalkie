@@ -4,5 +4,5 @@ chalk.enabled = true;
 chalk.level = 3;
 if (typeof module !== 'undefined') {
   module.exports = chalk;
-  module.exports.html = ansiHTML;
+  module.exports.ansiHTML = ansiHTML;
 }

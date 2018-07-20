@@ -1,14 +1,16 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-AnsiHTML = require('ansi-html');
+ansiHTML = require('ansi-html');
+stripAnsi = require('strip-ansi');
 chalk = require('chalk');
 chalk.enabled = true;
-chalk.level = 2;
+chalk.level = 3;
 if (typeof module !== 'undefined') {
   module.exports = chalk;
-  module.exports.html = ansiHTML;
+  module.exports.ansiHTML = ansiHTML;
+  module.exports.stripAnsi = stripAnsi;
 }
 
-},{"ansi-html":2,"chalk":4}],2:[function(require,module,exports){
+},{"ansi-html":2,"chalk":5,"strip-ansi":13}],2:[function(require,module,exports){
 'use strict'
 
 module.exports = ansiHTML
@@ -188,6 +190,18 @@ ansiHTML.reset()
 
 },{}],3:[function(require,module,exports){
 'use strict';
+
+module.exports = () => {
+	const pattern = [
+		'[\\u001B\\u009B][[\\]()#;?]*(?:(?:(?:[a-zA-Z\\d]*(?:;[a-zA-Z\\d]*)*)?\\u0007)',
+		'(?:(?:\\d{1,4}(?:;\\d{0,4})*)?[\\dA-PRZcf-ntqry=><~]))'
+	].join('|');
+
+	return new RegExp(pattern, 'g');
+};
+
+},{}],4:[function(require,module,exports){
+'use strict';
 const colorConvert = require('color-convert');
 
 const wrapAnsi16 = (fn, offset) => function () {
@@ -353,7 +367,7 @@ Object.defineProperty(module, 'exports', {
 	get: assembleStyles
 });
 
-},{"color-convert":7}],4:[function(require,module,exports){
+},{"color-convert":8}],5:[function(require,module,exports){
 (function (process){
 'use strict';
 const escapeStringRegexp = require('escape-string-regexp');
@@ -585,7 +599,7 @@ module.exports.supportsColor = stdoutColor;
 module.exports.default = module.exports; // For TypeScript
 
 }).call(this,require('_process'))
-},{"./templates.js":5,"_process":11,"ansi-styles":3,"escape-string-regexp":10,"supports-color":12}],5:[function(require,module,exports){
+},{"./templates.js":6,"_process":12,"ansi-styles":4,"escape-string-regexp":11,"supports-color":14}],6:[function(require,module,exports){
 'use strict';
 const TEMPLATE_REGEX = /(?:\\(u[a-f\d]{4}|x[a-f\d]{2}|.))|(?:\{(~)?(\w+(?:\([^)]*\))?(?:\.\w+(?:\([^)]*\))?)*)(?:[ \t]|(?=\r?\n)))|(\})|((?:.|[\r\n\f])+?)/gi;
 const STYLE_REGEX = /(?:^|\.)(\w+)(?:\(([^)]*)\))?/g;
@@ -715,7 +729,7 @@ module.exports = (chalk, tmp) => {
 	return chunks.join('');
 };
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 /* MIT license */
 var cssKeywords = require('color-name');
 
@@ -1585,7 +1599,7 @@ convert.rgb.gray = function (rgb) {
 	return [val / 255 * 100];
 };
 
-},{"color-name":9}],7:[function(require,module,exports){
+},{"color-name":10}],8:[function(require,module,exports){
 var conversions = require('./conversions');
 var route = require('./route');
 
@@ -1665,7 +1679,7 @@ models.forEach(function (fromModel) {
 
 module.exports = convert;
 
-},{"./conversions":6,"./route":8}],8:[function(require,module,exports){
+},{"./conversions":7,"./route":9}],9:[function(require,module,exports){
 var conversions = require('./conversions');
 
 /*
@@ -1764,7 +1778,7 @@ module.exports = function (fromModel) {
 };
 
 
-},{"./conversions":6}],9:[function(require,module,exports){
+},{"./conversions":7}],10:[function(require,module,exports){
 module.exports = {
 	"aliceblue": [240, 248, 255],
 	"antiquewhite": [250, 235, 215],
@@ -1915,7 +1929,7 @@ module.exports = {
 	"yellow": [255, 255, 0],
 	"yellowgreen": [154, 205, 50]
 };
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 'use strict';
 
 var matchOperatorsRe = /[|\\{}()[\]^$+*?.]/g;
@@ -1928,7 +1942,7 @@ module.exports = function (str) {
 	return str.replace(matchOperatorsRe, '\\$&');
 };
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -2114,7 +2128,13 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],12:[function(require,module,exports){
+},{}],13:[function(require,module,exports){
+'use strict';
+const ansiRegex = require('ansi-regex');
+
+module.exports = input => typeof input === 'string' ? input.replace(ansiRegex(), '') : input;
+
+},{"ansi-regex":3}],14:[function(require,module,exports){
 'use strict';
 module.exports = {
 	stdout: false,
